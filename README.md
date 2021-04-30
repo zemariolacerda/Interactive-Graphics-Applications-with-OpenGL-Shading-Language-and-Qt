@@ -1,7 +1,7 @@
 # Interactive-Graphics-Applications-with-OpenGL-Shading-Language-and-Qt
 
 ### Qt SDK 1.2.1 (Qt Creator IDE 2.4.1 + Qt Framework 4.8.1):
-##### [Qt SDK 1.2.1 Linux](https://drive.google.com/file/>d/12xLtfn3tsq9o2N6NmsnrgG5dm2sNfKeN/view?usp=sharing):
+##### [Qt SDK 1.2.1 Linux](https://drive.google.com/file/d/1N-isT6CBftVWJHY3Told2Efpx9Fsy9y-/view?usp=sharing):
 
 1. Executando pela interface gráfica:
    1. Faça o download do arquivo .run;
@@ -57,11 +57,11 @@ FORMS    += mainwindow.ui
 1. Clique 2x no arquivo **`mainwindow.ui`**
 ![alt text](https://i.imgur.com/0SRmi4d.png)
 2. Crie a classe **GLWidget**:
-2.2 *File* -> *New File or Project* e selecione as seguintes opções:
+   1. *File* -> *New File or Project* e selecione as seguintes opções:
 ![alt text](https://i.imgur.com/KwO3U6i.png)
-2.3 Preencha os campos da classe e avance:
+   2. Preencha os campos da classe e avance:
 ![alt text](https://i.imgur.com/fkGFYJZ.png)
-2.4 Finalize:
+   3. Finalize:
 ![alt text](https://i.imgur.com/ypiFjqL.png)
 3. Inclua **`<QtOpenGL>`** e declare os métodos **initializeGL()**, **resizeGL()** e **paintGL()** no arquivo **glwidget.h**:
 ```c++
@@ -111,8 +111,8 @@ void GLWidget::paintGL() {
 5. Arraste um *widget* para o objeto **centralWidget**:
 ![alt text](https://i.imgur.com/bcbGu7f.gif)
 6. Promova o *widget* para **GLWidget**:
-   6.1. Clique com o botão direito no widget e selecione *Promote to ...*
-   6.2. Em *Promoted class name* coloque *GLWidget*, clique em *Add* e *Promote*:
+   1. Clique com o botão direito no widget e selecione *Promote to ...*
+   2. Em *Promoted class name* coloque *GLWidget*, clique em *Add* e *Promote*:
    ![alt text](https://i.imgur.com/9p8i7kg.gif)
 7. Para rodar o programa, use o atalho '*ctrl + r*' ou clique no icone *Run*:
 ![alt text](https://i.imgur.com/svI7nqT.png)

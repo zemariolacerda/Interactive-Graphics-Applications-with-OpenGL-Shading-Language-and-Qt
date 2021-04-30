@@ -1,7 +1,7 @@
 # Interactive-Graphics-Applications-with-OpenGL-Shading-Language-and-Qt
 
 ### Qt SDK 1.2.1 (Qt Creator IDE 2.4.1 + Qt Framework 4.8.1):
-##### [Qt SDK 1.2.1 Linux](https://drive.google.com/file/d/1N-isT6CBftVWJHY3Told2Efpx9Fsy9y-/view?usp=sharing):
+##### [Qt SDK 1.2.1 Linux](https://drive.google.com/file/d/1FUsWaRXAQ5Wg0AHjIMmGzsssDZ-4O3Nv/view?usp=sharing):
 
 1. Executando pela interface gráfica:
    1. Faça o download do arquivo .run;
@@ -22,6 +22,7 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
 1. Crie um novo projeto:
 ![alt text](https://i.imgur.com/KUAiNTM.png)
 2. Selecione as opções destacadas:
+&nbsp;
 ![alt text](https://i.imgur.com/3bUjjbR.png)
 3. Defina o nome do seu projeto e o diretório em que ele será salvo:
 ![alt text](https://i.imgur.com/8QwCiJq.png)
@@ -62,6 +63,7 @@ FORMS    += mainwindow.ui
    2. Preencha os campos da classe e avance:
 ![alt text](https://i.imgur.com/fkGFYJZ.png)
    3. Finalize:
+&nbsp;
 ![alt text](https://i.imgur.com/ypiFjqL.png)
 3. Inclua **`<QtOpenGL>`** e declare os métodos **initializeGL()**, **resizeGL()** e **paintGL()** no arquivo **glwidget.h**:
 ```c++
@@ -123,17 +125,12 @@ void GLWidget::paintGL() {
 ### Problemas encontrados (Debian):
 > *error while loading shared libraries: libpng12.so.0: cannot open shared object file: No such file or directory'*
 >
-> > **Solução**
-> > Instale o libpng12.so.0:
-> > ```
-> > https://drive.google.com/file/d/1QzUx0cGfO4GMsZ-vEye1lfcTACBRX5J6/view?usp=sharing
-> > ```
+> > **Solução:**
+> > Instale o [libpng12.so.0](https://drive.google.com/file/d/1QzUx0cGfO4GMsZ-vEye1lfcTACBRX5J6/view?usp=sharing).
+>
 >&nbsp;
-> &nbsp;
 > *QGtkStyle was unable to detect the current GTK+ theme*
 >
-> > **Solução**
-> > Instale o libgnome2-common e reinicie:
-> > ```
-> > https://drive.google.com/file/d/1iTAk2RAyR8ao7NktYuxJX59hCi4fXyz3/view?usp=sharing
-> > ```
+> > **Solução:**
+> > Instale o [libgnome2-common](https://drive.google.com/file/d/1iTAk2RAyR8ao7NktYuxJX59hCi4fXyz3/view?usp=sharing) e reinicie seu computador.
+

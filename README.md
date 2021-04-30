@@ -62,7 +62,7 @@ FORMS    += mainwindow.ui
 ![alt text](https://i.imgur.com/KwO3U6i.png)
    2. Preencha os campos da classe e avance:
 ![alt text](https://i.imgur.com/fkGFYJZ.png)
-   3. Finalize:
+   3. Finalize:                                          
 &nbsp;
 ![alt text](https://i.imgur.com/ypiFjqL.png)
 3. Inclua **`<QtOpenGL>`** e declare os métodos **initializeGL()**, **resizeGL()** e **paintGL()** no arquivo **glwidget.h**:

@@ -110,7 +110,7 @@ void GLWidget::paintGL() {
     glClear(GL_COLOR_BUFFER_BIT);
 }
 ```
-5. Arraste um *widget* para o objeto **centralWidget**:
+5. Arraste um *widget* para o objeto **centralWidget** (clique 2x no arquivo **mainwindow.ui** para entrar na aba *Design*):
 ![alt text](https://i.imgur.com/bcbGu7f.gif)
 6. Promova o *widget* para **GLWidget**:
     1. Clique com o botão direito no widget e selecione *Promote to ...*
@@ -164,7 +164,7 @@ void GLWidget::paintGL() {
 11. Carregando um modelo geométrico:
     1. Clique 2x em **Type Here** e altere para **File** para criar uma opção de menu. Logo depois, crie uma opção de submenu com o nome **Open**:
     ![alt text](https://i.imgur.com/3LdXOzi.gif)
-    2. Declare o slot **showFileOpenDialog()** e os métodos **readOFFFile()**, **genNormals()**, **genTexCoordsCylinder()** e **genTangents()** no arquivo **glwidget.cpp** e dê include em alguns arquivos:
+    2. Declare o slot **showFileOpenDialog()** e os métodos **readOFFFile()**, **genNormals()**, **genTexCoordsCylinder()** e **genTangents()** no arquivo **glwidget.h** e dê include em alguns arquivos:
     ```c++
     ...
     #include <iostream>
@@ -389,9 +389,12 @@ void GLWidget::paintGL() {
         delete[] bitangents;
     }
     ```
-    4. Insira a assinatura do slot customizado **showFileOpenDialog()** na lista de Signals/Slots.
+    4. Insira a assinatura do slot customizado **showFileOpenDialog()** na lista de Signals/Slots (Passo 10-iv).
     5. Uma nova conexão Signal/Slot com a seguinte configuração deve ser criada:
     ![alt text](https://i.imgur.com/TGEvXkd.png)
+
+    6. Teste sua janela!
+
 12. Encapsulando recursos:
     1. Vá em *File* -> *New File or Project* e selecione as seguintes opções:
     ![alt text](https://i.imgur.com/xHycfDz.png)
@@ -399,6 +402,7 @@ void GLWidget::paintGL() {
     ![alt text](https://i.imgur.com/WbroGts.png)
     3. Crie um prefixo para listar shaders e texturas no arquivo **resources.qrc**:
     ![alt text](https://i.imgur.com/WEZ3h9l.gif)
+    4. Agora, iremos criar nossos shaders da seguinte maneira:
 
 &nbsp;
 ### Problemas encontrados (Debian):
@@ -412,4 +416,16 @@ void GLWidget::paintGL() {
 >
 > > **Solução:**
 > > Instale o [libgnome2-common](https://drive.google.com/file/d/1iTAk2RAyR8ao7NktYuxJX59hCi4fXyz3/view?usp=sharing) e reinicie seu computador.
+>
+>&nbsp;
+> - *error: GL/gl.h: No such file or directory*
+> > ```
+> > $ apt-file update
+> > ```
+> > ```
+> > $ apt-file search "gl.h"
+> > ```
+> > ```
+> > $ apt-get install libmesa-dev
+> > ```
 

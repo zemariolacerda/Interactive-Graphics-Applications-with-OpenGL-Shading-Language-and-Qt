@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>556</width>
+    <height>473</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,19 +17,19 @@
    <widget class="GLWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>9</x>
+      <x>-1</x>
       <y>10</y>
-      <width>381</width>
-      <height>171</height>
+      <width>561</width>
+      <height>351</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>220</y>
-      <width>401</width>
+      <x>-10</x>
+      <y>390</y>
+      <width>561</width>
       <height>28</height>
      </rect>
     </property>
@@ -41,8 +41,8 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>190</y>
-      <width>401</width>
+      <y>370</y>
+      <width>551</width>
       <height>21</height>
      </rect>
     </property>
@@ -56,7 +56,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>556</width>
      <height>22</height>
     </rect>
    </property>
@@ -73,7 +73,7 @@
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>

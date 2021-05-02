@@ -14,7 +14,7 @@ varying vec3 fL;
 varying vec2 fTexCoord;
 
 void main() {
-    vec eyePosition = modelViewMatrix * vPosition;
+    vec4 eyePosition = modelViewMatrix * vPosition;
 
     fN = normalMatrix * vNormal;
     fL = lightPosition.xyz - eyePosition.xyz;

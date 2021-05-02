@@ -454,6 +454,19 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
             qWarning() << shaderProgram->log() << endl;
         }
     }
+    
+    void GLWidget::destroyShaders() {
+        delete vertexShader;
+        vertexShader = NULL;
+
+        delete fragmentShader;
+        fragmentShader = NULL;
+
+        if (shaderProgram) {
+            delete shaderProgram;
+            shaderProgram = NULL;
+        }
+    }
     ```
 ### Carregando objetos
 1. Declaramos os métodos **createVBOs()**, **destroyVBOs()** e algumas variáveis no arquivo **`glwidget.h`**:

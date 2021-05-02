@@ -2,6 +2,7 @@
 #define GLWIDGET_H
 
 #include <QtOpenGL>
+#include <QGLFunctions>
 
 #include <iostream>
 #include <fstream>
@@ -9,6 +10,7 @@
 #include "camera.h"
 #include "light.h"
 #include "material.h"
+#include <iostream>
 
 #include "trackball.h"
 

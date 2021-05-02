@@ -20,7 +20,7 @@ GLWidget::GLWidget(QWidget *parent) : QGLWidget(parent) {
 
     zoom = 0.0;
 
-    fpsCounter = 0;
+//    fpsCounter = 0;
 }
 
 GLWidget::~GLWidget() {
@@ -29,13 +29,20 @@ GLWidget::~GLWidget() {
 }
 
 void GLWidget::initializeGL() {
+    QOpenGLFunctions glFuncs(QOpenGLContext::currentContext()); //<--------- adiciona
+
     glEnable(GL_DEPTH_TEST);
+
+
     QImage texColor = QImage(":/textures/bricksDiffuse.png");
     QImage texNormal = QImage(":/textures/bricksNormal.png");
-    glActiveTexture(GL_TEXTURE0);
+    glFuncs.glActiveTexture(GL_TEXTURE0);
+//  glActiveTexture(GL_TEXTURE0); //<--------- muda
     texID[0] = bindTexture(texColor);
-    glActiveTexture(GL_TEXTURE1);
+    glFuncs.glActiveTexture(GL_TEXTURE1); //<--------- muda
+//  glActiveTexture(GL_TEXTURE1);
     texID[1] = bindTexture(texNormal);
+
     connect(&timer, SIGNAL(timeout()), this, SLOT(animate()));
     timer.start(0);
 }
@@ -44,7 +51,7 @@ void GLWidget::resizeGL(int width, int height) {
     glViewport(0, 0, width, height);
 
     projectionMatrix.setToIdentity();
-    projectionMatrix.perspective(60.0, static_cast <qreal> (width) / static_cast <qreal> (height), 0.1, 20.0);
+    projectionMatrix.perspective(60.0, static_cast <qreal>(width) / static_cast <qreal>(height), 0.1, 20.0);
 
     trackBall.resizeViewport(width, height);
 
@@ -54,8 +61,11 @@ void GLWidget::resizeGL(int width, int height) {
 void GLWidget::paintGL() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+    QOpenGLFunctions glFuncs(QOpenGLContext::currentContext()); //<--------- adiciona
+
     if (!vboVertices)
         return;
+
     modelViewMatrix.setToIdentity();
     modelViewMatrix.lookAt(camera.eye, camera.at, camera.up);
     modelViewMatrix.translate(0, 0, zoom);
@@ -79,9 +89,9 @@ void GLWidget::paintGL() {
     shaderProgram->setUniformValue("texColorMap", 0);
     shaderProgram->setUniformValue("texNormalMap", 1);
 
-    glActiveTexture(GL_TEXTURE0);
+    glFuncs.glActiveTexture(GL_TEXTURE0); //<--------- altera
     glBindTexture(GL_TEXTURE_2D, texID[0]);
-    glActiveTexture(GL_TEXTURE1);
+    glFuncs.glActiveTexture(GL_TEXTURE1); //<--------- altera
     glBindTexture(GL_TEXTURE_2D, texID[1]);
 
     vboVertices->bind();
@@ -142,7 +152,8 @@ void GLWidget::showFileOpenDialog() {
 
 void GLWidget::readOFFFile(const QString &fileName) {
     std::ifstream stream;
-    stream.open(fileName.toAscii(), std::ifstream::in);
+//    stream.open(fileName.toAscii(), std::ifstream::in);
+    stream.open(fileName.toUtf8(), std::ifstream::in);
 
     if (!stream.is_open()) {
         qWarning("Cannot open file.");
@@ -153,9 +164,6 @@ void GLWidget::readOFFFile(const QString &fileName) {
 
     stream >> line;
     stream >> numVertices >> numFaces >> line;
-
-    delete[] vertices;
-    vertices = new QVector4D[numVertices];
 
     delete[] vertices;
     vertices = new QVector4D[numVertices];
@@ -172,12 +180,12 @@ void GLWidget::readOFFFile(const QString &fileName) {
         for (unsigned int i = 0; i < numVertices; i++) {
             double x, y, z;
             stream >> x >> y >> z;
-            max.setX(qMax(max.x(), x));
-            max.setY(qMax(max.y(), y));
-            max.setZ(qMax(max.z(), z));
-            min.setX(qMax(min.x(), x));
-            min.setY(qMax(min.y(), y));
-            min.setZ(qMax(min.z(), z));
+            max.setX(qMax((double)max.x(), x));
+            max.setY(qMax((double)max.y(), y));
+            max.setZ(qMax((double)max.z(), z));
+            min.setX(qMax((double)min.x(), x));
+            min.setY(qMax((double)min.y(), y));
+            min.setZ(qMax((double)min.z(), z));
 
             vertices[i] = QVector4D(x, y, z, 1.0);
         }
@@ -200,7 +208,6 @@ void GLWidget::readOFFFile(const QString &fileName) {
     }
 
     stream.close();
-
     emit statusBarMessage(QString("Samples %1, Faces %2").arg(numVertices).arg(numFaces));
 }
 
@@ -442,7 +449,6 @@ void GLWidget::destroyVBOs() {
 }
 
 void GLWidget::keyPressEvent(QKeyEvent *event) {
-    std::cout << "teste";
     switch (event->key()) {
     case Qt::Key_0:
         currentShader = 0;
@@ -470,17 +476,20 @@ void GLWidget::keyPressEvent(QKeyEvent *event) {
 }
 
 void GLWidget::mouseMoveEvent(QMouseEvent *event) {
-    trackBall.mouseMove(event->posF());
+//    trackBall.mouseMove(event->posF());
+    trackBall.mouseMove(event->pos());
 }
 
 void GLWidget::mousePressEvent(QMouseEvent *event) {
     if (event->button() & Qt::LeftButton)
-        trackBall.mousePress(event->posF());
+//        trackBall.mousePress(event->posF());
+        trackBall.mousePress(event->pos());
 }
 
 void GLWidget::mouseReleaseEvent(QMouseEvent *event) {
     if (event->button() == Qt::LeftButton)
-        trackBall.mouseRelease(event->posF());
+//        trackBall.mouseRelease(event->posF());
+        trackBall.mouseRelease(event->pos());
 }
 
 void GLWidget::wheelEvent(QWheelEvent *event) {

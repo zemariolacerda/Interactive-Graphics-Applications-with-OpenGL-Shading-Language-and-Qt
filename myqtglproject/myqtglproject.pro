@@ -32,31 +32,31 @@ RESOURCES += \
 
 OTHER_FILES += \
     fphong.glsl \
-    ftexture.glsl \
     vgouraud.glsl \
-    vnormal.glsl \
-    vphong.glsl \
     vtexture.glsl \
     fphong.glsl \
-    ftexture.glsl \
     vgouraud.glsl \
-    vnormal.glsl \
-    vphong.glsl \
     vtexture.glsl \
     vgouraud.glsl \
-    vnormal.glsl \
     fgouraud.glsl \
     fphong.glsl \
-    ftexture.glsl \
-    vphong.glsl \
     vtexture.glsl \
     vgouraud.glsl \
-    vnormal.glsl \
     fgouraud.glsl \
     fphong.glsl \
-    ftexture.glsl \
-    vphong.glsl \
     vtexture.glsl \
+    vtexture.glsl \
+    vgouraud.glsl \
+    fphong.glsl \
+    fnormal.glsl \
+    fgouraud.glsl \
+    vtexture.glsl \
+    vphong.glsl \
+    vnormal.glsl \
+    vgouraud.glsl \
+    fphong.glsl \
+    fnormal.glsl \
+    fgouraud.glsl \
     vtexture.glsl \
     vphong.glsl \
     vnormal.glsl \

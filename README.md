@@ -1,7 +1,7 @@
 # Interactive-Graphics-Applications-with-OpenGL-Shading-Language-and-Qt
 
 ### Qt SDK 1.2.1 (Qt Creator IDE 2.4.1 + Qt Framework 4.8.1):
-##### [Qt SDK 1.2.1 Linux](https://drive.google.com/file/d/1FUsWaRXAQ5Wg0AHjIMmGzsssDZ-4O3Nv/view?usp=sharing):
+[Qt SDK 1.2.1 Linux](https://drive.google.com/file/d/1FUsWaRXAQ5Wg0AHjIMmGzsssDZ-4O3Nv/view?usp=sharing):
 
 1. Executando pela interface gráfica:
    1. Faça o download do arquivo .run;
@@ -15,7 +15,7 @@ $ cd /local/do/arquivo/chmod +x qt-creator-opensource-linux-x86_64-4.8.0.run
 ```
 $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
 ```
-##### [Qt SDK 1.2.1 Windows](https://drive.google.com/file/d/1uAPWVDFjSLSmYABIIqvSzXsdgpdeSZPl/view?usp=sharing):
+[Qt SDK 1.2.1 Windows](https://drive.google.com/file/d/1uAPWVDFjSLSmYABIIqvSzXsdgpdeSZPl/view?usp=sharing):
 1. Instalação padrão do windows.
 &nbsp;
 ### Criando um novo projeto:
@@ -33,27 +33,27 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
 6. Adicione versionamento ao seu código (opicional) e finalize.
 ![alt text](https://i.imgur.com/KlJONE0.png)
 7. Adicione "opengl" no arquivo **`myqtglproject.pro`** que foi gerado:
-```c++
-#-------------------------------------------------
-#
-# Project created by QtCreator 2021-04-30T12:16:42
-#
-#-------------------------------------------------
+    ```c++
+    #-------------------------------------------------
+    #
+    # Project created by QtCreator 2021-04-30T12:16:42
+    #
+    #-------------------------------------------------
 
-QT       += core gui opengl
+    QT       += core gui opengl
 
-TARGET = myqtglproject
-TEMPLATE = app
+    TARGET = myqtglproject
+    TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        mainwindow.cpp
+    SOURCES += main.cpp\
+            mainwindow.cpp
 
-HEADERS  += mainwindow.h
+    HEADERS  += mainwindow.h
 
-FORMS    += mainwindow.ui
+    FORMS    += mainwindow.ui
 
-```
+    ```
 ### Criando a interface gráfica:
 1. Clique 2x no arquivo **`mainwindow.ui`**
 ![alt text](https://i.imgur.com/0SRmi4d.png)
@@ -65,58 +65,58 @@ FORMS    += mainwindow.ui
     3. Finalize:                                          
 &nbsp;
 ![alt text](https://i.imgur.com/ypiFjqL.png)
-3. Inclua **`<QtOpenGL>`** e declare os métodos **initializeGL()**, **resizeGL()** e **paintGL()** no arquivo **glwidget.h**:
-```c++
-#ifndef GLWIDGET_H
-#define GLWIDGET_H
+3. Inclua **`<QtOpenGL>`** e declare os métodos **initializeGL()**, **resizeGL()** e **paintGL()** no arquivo **`glwidget.h`**:
+    ```c++
+    #ifndef GLWIDGET_H
+    #define GLWIDGET_H
 
-#include <QGLWidget>
-#include <QtOpenGL>
+    #include <QGLWidget>
+    #include <QtOpenGL>
 
-class GLWidget : public QGLWidget
-{
-    Q_OBJECT
-public:
-    explicit GLWidget(QWidget *parent = 0);
+    class GLWidget : public QGLWidget
+    {
+        Q_OBJECT
+    public:
+        explicit GLWidget(QWidget *parent = 0);
+        
+    signals:
+        
+    public slots:
     
-signals:
-    
-public slots:
-   
-protected:
-    void initializeGL();
-    void resizeGL(int width, int height);
-    void paintGL();
-};
+    protected:
+        void initializeGL();
+        void resizeGL(int width, int height);
+        void paintGL();
+    };
 
-#endif // GLWIDGET_H
-```
-4. Implemente-os no arquivo **glwidget.cpp**:
-```c++
-#include "glwidget.h"
+    #endif // GLWIDGET_H
+    ```
+4. Implemente-os no arquivo **`glwidget.cpp`**:
+    ```c++
+    #include "glwidget.h"
 
-GLWidget::GLWidget(QWidget *parent) :
-    QGLWidget(parent)
-{
-}
+    GLWidget::GLWidget(QWidget *parent) :
+        QGLWidget(parent)
+    {
+    }
 
-void GLWidget::initializeGL() {
-}
+    void GLWidget::initializeGL() {
+    }
 
-void GLWidget::resizeGL(int width, int height) {
-}
+    void GLWidget::resizeGL(int width, int height) {
+    }
 
-void GLWidget::paintGL() {
-    glClear(GL_COLOR_BUFFER_BIT);
-}
-```
-5. Arraste um *widget* para o objeto **centralWidget** (clique 2x no arquivo **mainwindow.ui** para entrar na aba *Design*):
+    void GLWidget::paintGL() {
+        glClear(GL_COLOR_BUFFER_BIT);
+    }
+    ```
+5. Arraste um *widget* para o objeto **centralWidget** (clique 2x no arquivo **`mainwindow.ui`** para entrar na aba *Design*):
 ![alt text](https://i.imgur.com/bcbGu7f.gif)
 6. Promova o *widget* para **GLWidget**:
     1. Clique com o botão direito no widget e selecione *Promote to ...*
     2. Em *Promoted class name* coloque *GLWidget*, clique em *Add* e *Promote*:
    ![alt text](https://i.imgur.com/9p8i7kg.gif)
-7. Para rodar o programa, use o atalho '*ctrl + r*' ou clique no icone *Run*:
+7. Para rodar o programa, use o atalho '*ctrl + R*' ou clique no icone *Run*:
 ![alt text](https://i.imgur.com/svI7nqT.png)
 8. Caso tudo ocorra bem, uma janela será criada na sua tela. Caso encontre problemas, veja se existe alguma solução na parte de problemas encontrados.
 ![alt text](https://i.imgur.com/6pIcMDp.png)
@@ -132,39 +132,39 @@ void GLWidget::paintGL() {
 10. Criando um *checkbox* para alternar a cor do fundo do widget de preto para branco:
     1. Arraste um *Check Box* para **centralWidget** e o renomeie para "Toggle background color".
     ![alt text](https://i.imgur.com/ZSIUzkC.png)
-    2. Declarando um *slot* customizado para nosso checkbox no arquivo  **glwidget.h**:
-    ```c++
-    ...
-    class GLWidget : public QGLWidget
-    {
+    2. Declarando um *slot* customizado para nosso checkbox no arquivo  **`glwidget.h`**:
+        ```c++
+        ...
+        class GLWidget : public QGLWidget
+        {
         ...
         public slots:
             void toggleBackgroundColor(bool toBlack);
         ...
-    };
+        };
 
-    #endif // GLWIDGET_H
-    ```
-    3. Definindo um *slot* customizado para nosso checkbox no arquivo  **glwidget.cpp**:
-    ```c++
-    void GLWidget::toggleBackgroundColor(bool toBlack) {
-        if (toBlack){
-            glClearColor(0, 0, 0, 1);
-        } else {
-            glClearColor(1, 1, 1, 1);
+        #endif // GLWIDGET_H
+        ```
+    3. Definindo um *slot* customizado para nosso checkbox no arquivo  **`glwidget.cpp`**:
+        ```c++
+        void GLWidget::toggleBackgroundColor(bool toBlack) {
+            if (toBlack){
+                glClearColor(0, 0, 0, 1);
+            } else {
+                glClearColor(1, 1, 1, 1);
+            }
+            updateGL();
         }
-        updateGL();
-    }
-    ```
+        ```
     4. Inserindo a assinatura do *slot* customizado **toggleBackgroundColor(bool)** na lista de *Signals/Slots*:
     ![alt text](https://i.imgur.com/jmsu4gr.gif)
-    5. Uma nova conexão Signal/Slot com a seguinte configuração deve ser criada:
+    5. Uma nova conexão *Signal/Slot* com a seguinte configuração deve ser criada:
     ![alt text](https://i.imgur.com/QmPiQRQ.png)
-
-11. Carregando um modelo geométrico:
-    1. Clique 2x em **Type Here** e altere para **File** para criar uma opção de menu. Logo depois, crie uma opção de submenu com o nome **Open**:
-    ![alt text](https://i.imgur.com/3LdXOzi.gif)
-    2. Declare o slot **showFileOpenDialog()** e os métodos **readOFFFile()**, **genNormals()**, **genTexCoordsCylinder()** e **genTangents()** no arquivo **glwidget.h** e dê include em alguns arquivos:
+    6. Teste sua janela!
+### Carregando um modelo geométrico:
+1. Clique 2x em **Type Here** e altere para **File** para criar uma opção de menu. Logo depois, crie uma opção de submenu com o nome **Open**:
+![alt text](https://i.imgur.com/3LdXOzi.gif)
+2. Declare o *slot* **showFileOpenDialog()** e os métodos **readOFFFile()**, **genNormals()**, **genTexCoordsCylinder()** e **genTangents()** no arquivo **`glwidget.h`** e dê include em alguns arquivos:
     ```c++
     ...
     #include <iostream>
@@ -173,31 +173,31 @@ void GLWidget::paintGL() {
     ...
     class GLWidget : public QGLWidget
     {
+    ...
+    public slots:
         ...
-        public slots:
-            ...
-            void showFileOpenDialog();
-        ...
+        void showFileOpenDialog();
+    ...
 
-        private:
-            void readOFFFile(const QString &fileName);
-            void genNormals();
-            void genTexCoordsCylinder();
-            void genTangents();
-            
-            unsigned int numVertices;
-            unsigned int numFaces;
-            QVector4D *vertices;
-            QVector3D *normals;
-            QVector2D *texCoords;
-            QVector4D *tangents;
-            unsigned int *indices;
-        ...
+    private:
+        void readOFFFile(const QString &fileName);
+        void genNormals();
+        void genTexCoordsCylinder();
+        void genTangents();
+        
+        unsigned int numVertices;
+        unsigned int numFaces;
+        QVector4D *vertices;
+        QVector3D *normals;
+        QVector2D *texCoords;
+        QVector4D *tangents;
+        unsigned int *indices;
+    ...
     };
 
     #endif // GLWIDGET_H
     ```
-    3. Definindo o *slot* **showFileOpenDialog()** e os métodos **readOFFFile()**, **genNormals()**, **genTexCoordsCylinder()** e **genTangents()** no arquivo **glwidget.cpp**:
+3. Definindo o *slot* **showFileOpenDialog()** e os métodos **readOFFFile()**, **genNormals()**, **genTexCoordsCylinder()** e **genTangents()** no arquivo **`glwidget.cpp`**:
     ```c++
     void GLWidget::showFileOpenDialog() {
         QByteArray fileFormat = "off";
@@ -389,20 +389,584 @@ void GLWidget::paintGL() {
         delete[] bitangents;
     }
     ```
-    4. Insira a assinatura do slot customizado **showFileOpenDialog()** na lista de Signals/Slots (Passo 10-iv).
-    5. Uma nova conexão Signal/Slot com a seguinte configuração deve ser criada:
-    ![alt text](https://i.imgur.com/TGEvXkd.png)
+4. Insira a assinatura do *slot* customizado **showFileOpenDialog()** na lista de Signals/Slots (Criando a interface gráfica - passo 10.iv).
+5. Uma nova conexão *Signal/Slot* com a seguinte configuração deve ser criada:
+![alt text](https://i.imgur.com/TGEvXkd.png)
 
-    6. Teste sua janela!
+### Encapsulando recursos:
+1. Vá em *File* -> *New File or Project* e selecione as seguintes opções:
+![alt text](https://i.imgur.com/xHycfDz.png)
+2. Nomeie como **resources.qrc**:
+![alt text](https://i.imgur.com/WbroGts.png)
+3. Crie um prefixo para listar shaders e texturas no arquivo **`resources.qrc`**:
+![alt text](https://i.imgur.com/WEZ3h9l.gif)
+4. Faça o Download dos shaders e coloque os arquivos no diretório do projeto. Depois, adicione-os ao projeto pelo Qt:
+![alt text](https://i.imgur.com/y9zLjYK.gif)
+5. Finalmente, podemos adicioná-los ao nosso prefixo shaders:
+![alt text](https://i.imgur.com/qvzHSsV.gif)
+6. Declaramos os métodos **createShaders()** e **destroyShaders()** no arquivo **`glwidget.h`**:
+    ```c++
+    class GLWidget : public QGLWidget
+    {
+    ...
+    private:
+        ...
+        void createShaders();
+        void destroyShaders();
+    ...
+    };
 
-12. Encapsulando recursos:
-    1. Vá em *File* -> *New File or Project* e selecione as seguintes opções:
-    ![alt text](https://i.imgur.com/xHycfDz.png)
-    2. Nomeie como **resources.qrc**:
-    ![alt text](https://i.imgur.com/WbroGts.png)
-    3. Crie um prefixo para listar shaders e texturas no arquivo **resources.qrc**:
-    ![alt text](https://i.imgur.com/WEZ3h9l.gif)
-    4. Agora, iremos criar nossos shaders da seguinte maneira:
+    #endif // GLWIDGET_H
+    ```
+7. Implementamos estes métodos no arquivo **`glwidget.cpp`**:
+    ```c++
+    void GLWidget::createShaders() {
+        destroyShaders();
+
+        QString vertexShaderFile[] = {
+            ":/shaders/vgouraud.glsl",
+            ":/shaders/vphong.glsl",
+            ":/shaders/vtexture glsl",
+            ":/shaders/vnormal.glsl"
+        };
+        QString fragmentShaderFile[] = {
+            ":/shaders/fgouraud.glsl",
+            ":/shaders/fphong.glsl",
+            ":/shaders/ftexture glsl",
+            ":/shaders/fnormal.glsl"
+        };
+
+        vertexShader = new QGLShader(QGLShader::Vertex);
+        if (!vertexShader->compileSourceFile(vertexShaderFile[currentShader])) {
+            qWarning() << vertexShader->log();
+        }
+
+        fragmentShader = new QGLShader(QGLShader::Fragment);
+        if (!fragmentShader->compileSourceFile(fragmentShaderFile[currentShader])) {
+            qWarning() << fragmentShader->log();
+        }
+
+        shaderProgram = new QGLShaderProgram;
+        shaderProgram->addShader(vertexShader);
+        shaderProgram->addShader(fragmentShader);
+
+        if (!shaderProgram->link()) {
+            qWarning() << shaderProgram->log() << endl;
+        }
+    }
+    ```
+### Carregando objetos
+1. Declaramos os métodos **createVBOs()**, **destroyVBOs()** e algumas variáveis no arquivo **`glwidget.h`**:
+    ```c++
+    class GLWidget : public QGLWidget
+    {
+    ...
+    private:
+        ...
+        void createVBOs();
+        void destroyVBOs();
+
+        QGLBuffer *vboVertices;
+        QGLBuffer *vboNormals;
+        QGLBuffer *vboTexCoords;
+        QGLBuffer *vboTangents;
+        QGLBuffer *vboIndices;
+
+        QGLShader * vertexShader;
+        QGLShader * fragmentShader;
+        QGLShaderProgram * shaderProgram;
+        unsigned int currentShader;
+    ...
+    };
+
+    #endif // GLWIDGET_H
+    ```
+2. Implementamos os métodos *createVBOs()* e *destroyVBOs()* no arquivo **`glwidget.cpp`**:
+    ```c++
+    void GLWidget::createVBOs() {
+        destroyVBOs();
+
+        vboVertices = new QGLBuffer(QGLBuffer::VertexBuffer);
+        vboVertices->create();
+        vboVertices->bind();
+        vboVertices->setUsagePattern(QGLBuffer::StaticDraw);
+        vboVertices->allocate(vertices, numVertices * sizeof(QVector4D));
+        delete[] vertices;
+        vertices = NULL;
+
+        vboNormals = new QGLBuffer(QGLBuffer::VertexBuffer);
+        vboNormals->create();
+        vboNormals->bind();
+        vboNormals->setUsagePattern(QGLBuffer::StaticDraw);
+        vboNormals->allocate(normals, numVertices * sizeof(QVector3D));
+
+        delete[] normals;
+        normals = NULL;
+
+        vboTexCoords = new QGLBuffer(QGLBuffer::VertexBuffer);
+        vboTexCoords->create();
+        vboTexCoords->bind();
+        vboTexCoords->setUsagePattern(QGLBuffer::StaticDraw);
+        vboTexCoords->allocate(texCoords, numVertices * sizeof(QVector2D));
+
+        delete[] texCoords;
+        texCoords = NULL;
+
+        vboTangents = new QGLBuffer(QGLBuffer::VertexBuffer);
+        vboTangents->create();
+        vboTangents->bind();
+        vboTangents->setUsagePattern(QGLBuffer::StaticDraw);
+        vboTangents->allocate(tangents, numVertices * sizeof(QVector4D));
+
+        delete[] tangents;
+        tangents = NULL;
+
+        vboIndices = new QGLBuffer(QGLBuffer::IndexBuffer);
+        vboIndices->create();
+        vboIndices->bind();
+        vboIndices->setUsagePattern(QGLBuffer::StaticDraw);
+        vboIndices->allocate(indices, numFaces * 3 * sizeof(unsigned int));
+
+        delete[] indices;
+        indices = NULL;
+    }
+
+    void GLWidget::destroyVBOs() {
+        if (vboVertices) {
+            vboVertices->release();
+            delete vboVertices;
+            vboVertices = NULL;
+        }
+
+        if (vboNormals) {
+            vboNormals->release();
+            delete vboNormals;
+            vboNormals = NULL;
+        }
+
+        if (vboTexCoords) {
+            vboTexCoords->release();
+            delete vboTexCoords;
+            vboTexCoords = NULL;
+        }
+
+        if (vboTangents) {
+            vboTangents->release();
+            delete vboTangents;
+            vboTangents = NULL;
+        }
+
+        if (vboIndices) {
+            vboIndices->release();
+            delete vboIndices;
+            vboIndices = NULL;
+        }
+    }
+    ```
+### Eventos do mouse e teclado
+1. Declaramos os seguintes métodos no arquivo **`glwidget.h`**:
+    -  **keyPressEvent()**: responsável pela por alternar entre os efeitos do *shader* com as teclas 0 (Gourad shading), 1 (Phong shading), 2 (Phong + textura), 3 (mapeamento normal), esc (sair da aplicação).
+    - **mouseMoveEvent()**, **mousePressEvent()**, **mouseReleaseEvent()**: métodos que manipulam os eventos do mous para a classe *TrackBall* que iremos criar em seguida.
+    - **wheelEvent()**: implementaremos uma operação de zoom com a manipulação da roda do mouse.
+    ```c++
+    ...
+    #include "trackball.h";
+    ...
+    class GLWidget : public QGLWidget
+    {
+    ...
+    protected:
+        ...
+        void mouseMoveEvent(QMouseEvent * event);
+        void mousePressEvent(QMouseEvent * event);
+        void mouseReleaseEvent(QMouseEvent * event);
+        void wheelEvent(QWheelEvent * event);
+        void keyPressEvent(QKeyEvent * event);
+    ...
+    private:
+        ...
+        TrackBall trackBall;
+
+        double zoom;
+    };
+
+    #endif // GLWIDGET_H
+    ```
+2. Em seguida, implementamos estes métodos no arquivo **`glwidget.cpp`**:
+    ```c++
+    void GLWidget::keyPressEvent(QKeyEvent * event) {
+        switch (event->key()) {
+        case Qt::Key_0:
+            currentShader = 0;
+            createShaders();
+            updateGL();
+            break;
+        case Qt::Key_1:
+            currentShader = 1;
+            createShaders();
+            updateGL();
+            break;
+        case Qt::Key_2:
+            currentShader = 2;
+            createShaders();
+            updateGL();
+            break;
+        case Qt::Key_3:
+            currentShader = 3;
+            createShaders();
+            updateGL();
+            break;
+        case Qt::Key_Escape:
+            qApp->quit();
+        }
+    }
+
+    void GLWidget::mouseMoveEvent(QMouseEvent * event) {
+        trackBall.mouseMove(event->posF());
+    }
+
+    void GLWidget::mousePressEvent(QMouseEvent * event) {
+        if (event->button() & Qt::LeftButton)
+            trackBall.mousePress(event->posF());
+    }
+
+    void GLWidget::mouseReleaseEvent(QMouseEvent * event) {
+        if (event->button() == Qt::LeftButton)
+            trackBall.mouseRelease(event->posF());
+    }
+
+    void GLWidget::wheelEvent(QWheelEvent * event) {
+        zoom += 0.001 * event->delta();
+    }
+    ```
+### Classe TrackBall
+1. Criaremos a classe TrackBall conforme o item 2 da seção **Criando a interface gráfica**:
+    ![alt text](https://i.imgur.com/55BZVy1.png)
+    1. Arquivo **`trackball.h`**:
+        ```c++
+        #ifndef TRACKBALL_H
+        #define TRACKBALL_H
+
+        #include <QVector3D>
+        #include <QQuaternion>
+        #include <QTime>
+
+        #include <cmath>
+
+        class TrackBall {
+        public:
+            TrackBall();
+            void mouseMove(const QPointF & p);
+            void mousePress(const QPointF & p);
+            void mouseRelease(const QPointF & p);
+            void resizeViewport(int width, int height);
+            QQuaternion getRotation();
+
+        private:
+            QQuaternion rotation;
+            QVector3D axis;
+            double velocity;
+
+            QVector3D lastPos3D;
+            QTime lastTime;
+            bool trackingMouse;
+
+            double viewportWidth;
+            double viewportHeight;
+
+            const double rad2deg;
+
+            QVector3D mousePosTo3D(const QPointF & p);
+        };
+
+        #endif
+        ```
+    2. **`trackball.cpp`**:
+        ```c++
+        #include "trackball.h"
+
+        TrackBall::TrackBall(): rad2deg(180.0 / M_PI) {
+            velocity = 0.0;
+            trackingMouse = false;
+            lastTime = QTime::currentTime();
+        }
+
+        void TrackBall::mouseMove(const QPointF &p) {
+            if (!trackingMouse) {
+                return;
+            }
+
+            QTime currentTime = QTime::currentTime();
+            int msecs = lastTime.msecsTo(currentTime);
+            if (msecs) {
+                QVector3D vp = mousePosTo3D(p);
+                QVector3D currentPos3D = QVector3D(vp.x(), vp.y(), 0.0);
+                double lenSqr = currentPos3D.lengthSquared();
+                (lenSqr >= 1.0) ? currentPos3D.normalize():currentPos3D.setZ(sqrt(1.0 - lenSqr));
+
+                axis = QVector3D::crossProduct(lastPos3D, currentPos3D);
+                double angle = rad2deg * axis.length();
+                velocity = angle / msecs;
+                axis.normalize();
+                rotation = QQuaternion::fromAxisAndAngle(axis, angle) * rotation;
+
+                lastPos3D = currentPos3D;
+                lastTime = currentTime;
+            }
+        }
+
+        void TrackBall::mousePress(const QPointF & p) {
+            rotation = getRotation();
+            trackingMouse = true;
+            lastTime = QTime::currentTime();
+
+            lastPos3D = mousePosTo3D(p);
+            double lenSqr = lastPos3D.lengthSquared();
+            (lenSqr >= 1.0) ? lastPos3D.normalize():lastPos3D.setZ(sqrt(1.0 - lenSqr));
+
+            velocity = 0.0;
+        }
+
+        void TrackBall::mouseRelease(const QPointF & p) {
+            mouseMove(p);
+            trackingMouse = false;
+        }
+
+        void TrackBall::resizeViewport(int width, int height) {
+            viewportWidth = static_cast < double > (width);
+            viewportHeight = static_cast < double > (height);
+        }
+
+        QQuaternion TrackBall::getRotation() {
+            if (trackingMouse) {
+                return rotation;
+            }
+
+            QTime currentTime = QTime::currentTime();
+            double angle = velocity * lastTime.msecsTo(currentTime);
+            return QQuaternion::fromAxisAndAngle(axis, angle) * rotation;
+        }
+
+        QVector3D TrackBall::mousePosTo3D(const QPointF & p) {
+            return QVector3D(2.0 * p.x() / viewportWidth - 1.0, 1.0 - 2.0 * p.y() / viewportHeight, 0.0);
+        }
+        ```
+### Classes vetor e matriz:
+1. No método **resizeGL()** que haviamos criado anteriormente, iremos configurar a *projectionMatrix* da seguinte forma:
+    ```c++
+    void GLWidget::resizeGL(int width, int height) {
+        glViewport(0, 0, width, height);
+        
+        projectionMatrix.setToIdentity();
+        projectionMatrix.perspective(60.0, static_cast <qreal> (width) / static_cast <qreal> (height), 0.1, 20.0);
+        
+        trackBall.resizeViewport(width, height);
+        
+        updateGL();
+    }
+    ```
+2. Também precisamos declarar a variável projectionMatrix no arquivo **`glwidget.h`**:
+```c++
+class GLWidget : public QGLWidget
+{
+...
+private:
+    ...
+    QMatrix4x4 projectionMatrix;
+...
+};
+
+#endif // GLWIDGET_H
+```
+### *Signals/Slots* - parte 2
+1. Iremos emitir um sinal para o widget mudar de cor para recolorirmos a janela. Ao invés de definirmos um *signal/slot* no modo *Design*, faremos agora direto no código. Criaremos o método **animate()** e adicionaremos algumas linhas de código no método **readOFFFile()**:
+    1. Declarando **animate()** no arquivo **`glwidget.h`**:
+        ```c++
+        class GLWidget : public QGLWidget
+        {
+        ...
+        signals:
+            void statusBarMessage(QString ns);
+        ...
+        public slots:
+            ...
+            void animate();
+        ...
+        private:
+            int texID[2];
+            QTimer timer;
+        ...
+        };
+        ```
+    2. Criando o método **animate()** e editando o método **readOFFFile()**:
+        ```c++
+        void GLWidget::animate() {
+            updateGL();
+        }
+
+        void GLWidget::readOFFFile(const QString &fileName) {
+            ...
+            emit statusBarMessage(QString("Samples %1, Faces %2").arg(numVertices).arg(numFaces));
+        }
+        ```
+### Mapeamento de Textura
+1. Alteramos o método **initializeGL()** no arquivo **`glwidget.cpp`** da seguinte forma:
+    ```c++
+    void GLWidget::initializeGL() {
+        glEnable(GL_DEPTH_TEST);
+        QImage texColor = QImage(":/textures/bricksDiffuse.png");
+        QImage texNormal = QImage(":/textures/bricksNormal.png");
+        glActiveTexture(GL_TEXTURE0);
+        texID[0] = bindTexture(texColor);
+        glActiveTexture(GL_TEXTURE1);
+        texID[1] = bindTexture(texNormal);
+        connect( & timer, SIGNAL(timeout()), this, SLOT(animate()));
+        timer.start(0);
+    }
+    ```
+### O método paintGL()
+1. O método será chamado toda vez que a cena OpenlGL precisar ser reexibida. Declaramos no arquivo **`glwidget.h`** alguns componentes que o método irá utilizar: 
+    ```c++
+    ...
+    #include "camera.h"
+    #include "light.h"
+    #include "material.h"
+    ...
+    class GLWidget : public QGLWidget
+    {
+    ...
+    private:
+        ...
+        Camera camera;
+        Light light;
+        Material material;
+
+        QMatrix4x4 modelViewMatrix;
+    ...
+    };
+    ```
+2. Criamos as classes **Camera**, **Light** e **Material** (Criando a interface gráfica - passo 2.i):
+    1. **`camera.h`**:
+        ```c++
+        #ifndef CAMERA_H
+        #define CAMERA_H
+
+        #include <QVector3D>
+
+        class Camera {
+        public:
+            Camera();
+
+            QVector3D eye;
+            QVector3D at;
+            QVector3D up;
+        };
+        #endif // CAMERA_H
+        ```
+    2. **`camera.cpp`**:
+        ```c++
+        #include "camera.h"
+
+        Camera::Camera() {
+            eye = QVector3D(0.0, 0.0, 1.0);
+            at = QVector3D(0.0, 0.0, 0.0);
+            up = QVector3D(0.0, 1.0, 0.0);
+        }
+        ```
+    3. **`light.h`**:
+        ```c++
+        #ifndef LIGHT_H
+        #define LIGHT_H
+
+        #include <QVector4D>
+
+        class Light {
+        public:
+            Light();
+            
+            QVector4D position;
+            QVector4D ambient;
+            QVector4D diffuse;
+            QVector4D specular;
+        };
+
+        #endif // LIGHT_H
+        ```
+    4. **`light.cpp`**:
+        ```c++
+        #include "light.h"
+
+        Light::Light() {
+            position = QVector4D(3.0, 3.0, 3.0, 0.0);
+            ambient = QVector4D(0.1, 0.1, 0.1, 1.0);
+            diffuse = QVector4D(0.9, 0.9, 0.9, 1.0);
+            specular = QVector4D(0.9, 0.9, 0.9, 1.0);
+        }
+        ```
+    5. **`material.h`**:
+        ```c++
+        #ifndef MATERIAL_H
+        #define MATERIAL_H
+
+        #include <QVector4D>
+
+        class Material {
+        public:
+            Material();
+            QVector4D ambient;
+            QVector4D diffuse;
+            QVector4D specular;
+            double shininess;
+        };
+
+        # endif // MATERIAL_H
+        ```
+    6. **`material.cpp`**:
+        ```c++
+        #include "material.h"
+        Material::Material() {
+            ambient = QVector4D(1.0, 1.0, 1.0, 1.0);
+            diffuse = QVector4D(0.6, 0.6, 0.6, 1.0);
+            specular = QVector4D(0.4, 0.4, 0.4, 1.0);
+            shininess = 200.0;
+        }
+        ```
+### Formatando o contexto para o OpenGL
+1. Faremos isso no arquivo **`main.cpp`**:
+    ```c++
+    #include <QtGui/QApplication>
+    #include <QGLFormat>
+    #include "mainwindow.h"
+
+    int main(int argc, char *argv[]) {
+        QGLFormat format = QGLFormat::defaultFormat();
+        format.setSampleBuffers(true);
+        format.setSamples(8);
+        if (!format.sampleBuffers())
+            qWarning("Multisample buffer is not supported.");
+        QGLFormat::setDefaultFormat(format);
+
+        QApplication a(argc, argv);
+        MainWindow w;
+        w.show();
+
+        return a.exec();
+    }
+    ```
+### Declarando o construtor e o destrutor da class **GLWidget**:
+1. **`glwidget.h`**:
+    ```c++
+    ...
+    class GLWidget : public QGLWidget
+    {
+        ...
+    public:
+        explicit GLWidget(QWidget *parent = 0);
+        virtual ~GLWidget();
+    ...
+    };
+    ```
+
 
 &nbsp;
 ### Problemas encontrados (Debian):

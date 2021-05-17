@@ -111,9 +111,9 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
         ![alt text](https://i.imgur.com/TXriXOz.png)
     2. Em *Promoted class name* coloque *GLWidget*, clique em *Add* e *Promote*:
         ![alt text](https://i.imgur.com/oj1n8HG.png)
-6. Altere a *focusPolicy* do *widget* para *StrongFocus*:                                                                   
+6. Altere o atributo  *focusPolicy* do *widget* para *StrongFocus*:                                                     
     ![alt text](https://i.imgur.com/BehT2ZA.png)
-7. Para rodar o programa, use o atalho '*ctrl + R*' ou clique no icone *Run*:
+7. Para rodar o programa, use o atalho '*ctrl + R* ' ou clique no ícone *Run*:
     ![alt text](https://i.imgur.com/svI7nqT.png)
 8. Caso tudo ocorra bem, uma janela será criada na sua tela. Caso encontre problemas, veja se existe alguma solução na parte de problemas encontrados.
     ![alt text](https://i.imgur.com/6pIcMDp.png)
@@ -129,8 +129,7 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
 10. Criando um *checkbox* para alternar a cor do fundo do widget de preto para branco:
     1. Arraste um *Check Box* para **centralWidget** e o renomeie para "Toggle background color".
         ![alt text](https://i.imgur.com/ZSIUzkC.png)
-    2. Altere seu estado para *checked*:
-        &nbsp;
+    2. Altere seu estado para *checked*:                                                                       
         ![alt text](https://i.imgur.com/2tvGfMW.png)
     3. Declarando um *slot* customizado para nosso checkbox no arquivo  **`glwidget.h`**:
         ```c++
@@ -163,8 +162,7 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
             ![alt text](https://i.imgur.com/YODvnna.png)
     6. Uma nova conexão *Signal/Slot* com a seguinte configuração deve ser criada:
         ![alt text](https://i.imgur.com/jp2KrFA.png)
-    7. Teste sua janela!
-        &nbsp;
+    7. Teste sua janela!                                                                     
         ![alt text](https://i.imgur.com/scHr1JY.png)
         ![alt text](https://i.imgur.com/waIfljq.png)
 
@@ -403,8 +401,7 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
 ### Encapsulando recursos:
 1. Vá em *File* -> *New File or Project* e selecione as seguintes opções:
     ![alt text](https://i.imgur.com/xHycfDz.png)
-2. Nomeie como **resources.qrc**:
-    &nbsp;
+2. Nomeie como **resources.qrc**:                                                                
     ![alt text](https://i.imgur.com/WbroGts.png)
 3. Crie um prefixo para listar shaders e texturas no arquivo **`resources.qrc`**:
     ![alt text](https://i.imgur.com/xLv9ash.png)
@@ -1084,7 +1081,7 @@ Iremos emitir um sinal para o widget mudar de cor para recolorirmos a janela. Ao
 Podemos testar a aplicação com alguns [objetos](https://drive.google.com/drive/folders/1DSj4Bx5Fo06-ZxT8Sek2oJYMNSs4qVF_?usp=sharing) OFF:
 ![alt text](https://i.imgur.com/grvn4PN.png)
 
-### Problemas encontrados (Debian):
+### Problemas encontrados (Linux Mint):
 > - *error while loading shared libraries: libpng12.so.0: cannot open shared object file: No such file or directory'*
 >
 > > **Solução:**

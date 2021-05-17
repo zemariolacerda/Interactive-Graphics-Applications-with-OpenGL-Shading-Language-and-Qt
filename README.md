@@ -113,6 +113,7 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
         ![alt text](https://i.imgur.com/oj1n8HG.png)
 6. Altere a *focusPolicy* do *widget* para *StrongFocus*:
     &nbsp;
+    &nbsp;
     ![alt text](https://i.imgur.com/BehT2ZA.png)
 7. Para rodar o programa, use o atalho '*ctrl + R*' ou clique no icone *Run*:
     ![alt text](https://i.imgur.com/svI7nqT.png)
@@ -131,6 +132,7 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
     1. Arraste um *Check Box* para **centralWidget** e o renomeie para "Toggle background color".
         ![alt text](https://i.imgur.com/ZSIUzkC.png)
     2. Altere seu estado para *checked*:
+        &nbsp;
         ![alt text](https://i.imgur.com/2tvGfMW.png)
     3. Declarando um *slot* customizado para nosso checkbox no arquivo  **`glwidget.h`**:
         ```c++
@@ -164,6 +166,7 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
     6. Uma nova conexão *Signal/Slot* com a seguinte configuração deve ser criada:
         ![alt text](https://i.imgur.com/jp2KrFA.png)
     7. Teste sua janela!
+        &nbsp;
         ![alt text](https://i.imgur.com/scHr1JY.png)
         ![alt text](https://i.imgur.com/waIfljq.png)
 
@@ -395,7 +398,7 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
         delete[] bitangents;
     }
     ```
-4. Insira a assinatura do *slot* customizado **showFileOpenDialog()** na lista de Signals/Slots (Criando a interface gráfica - passo 10.v).
+4. Insira a assinatura do *slot* customizado **showFileOpenDialog()** na lista de Signals/Slots (**Criando a interface gráfica** - passo 10.v).
 5. Uma nova conexão *Signal/Slot* com a seguinte configuração deve ser criada:
     ![alt text](https://i.imgur.com/iSPzZw8.png)
 
@@ -403,6 +406,7 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
 1. Vá em *File* -> *New File or Project* e selecione as seguintes opções:
     ![alt text](https://i.imgur.com/xHycfDz.png)
 2. Nomeie como **resources.qrc**:
+    &nbsp;
     ![alt text](https://i.imgur.com/WbroGts.png)
 3. Crie um prefixo para listar shaders e texturas no arquivo **`resources.qrc`**:
     ![alt text](https://i.imgur.com/xLv9ash.png)
@@ -661,117 +665,117 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
     }
     ```
 ### Classe TrackBall
-1. Criaremos a classe TrackBall conforme o item 2 da seção **Criando a interface gráfica**:
+1. Criaremos a classe TrackBall conforme o item 1 da seção **Criando a interface gráfica**:
     ![alt text](https://i.imgur.com/55BZVy1.png)
-    1. Arquivo **`trackball.h`**:
-        ```c++
-        #ifndef TRACKBALL_H
-        #define TRACKBALL_H
+2. Arquivo **`trackball.h`**:
+    ```c++
+    #ifndef TRACKBALL_H
+    #define TRACKBALL_H
 
-        #include <QVector3D>
-        #include <QQuaternion>
-        #include <QTime>
+    #include <QVector3D>
+    #include <QQuaternion>
+    #include <QTime>
 
-        #include <cmath>
+    #include <cmath>
 
-        class TrackBall {
-        public:
-            TrackBall();
-            void mouseMove(const QPointF & p);
-            void mousePress(const QPointF & p);
-            void mouseRelease(const QPointF & p);
-            void resizeViewport(int width, int height);
-            QQuaternion getRotation();
+    class TrackBall {
+    public:
+        TrackBall();
+        void mouseMove(const QPointF & p);
+        void mousePress(const QPointF & p);
+        void mouseRelease(const QPointF & p);
+        void resizeViewport(int width, int height);
+        QQuaternion getRotation();
 
-        private:
-            QQuaternion rotation;
-            QVector3D axis;
-            double velocity;
+    private:
+        QQuaternion rotation;
+        QVector3D axis;
+        double velocity;
 
-            QVector3D lastPos3D;
-            QTime lastTime;
-            bool trackingMouse;
+        QVector3D lastPos3D;
+        QTime lastTime;
+        bool trackingMouse;
 
-            double viewportWidth;
-            double viewportHeight;
+        double viewportWidth;
+        double viewportHeight;
 
-            const double rad2deg;
+        const double rad2deg;
 
-            QVector3D mousePosTo3D(const QPointF & p);
-        };
+        QVector3D mousePosTo3D(const QPointF & p);
+    };
 
-        #endif
-        ```
-    2. **`trackball.cpp`**:
-        ```c++
-        #include "trackball.h"
+    #endif
+    ```
+3. **`trackball.cpp`**:
+    ```c++
+    #include "trackball.h"
 
-        TrackBall::TrackBall(): rad2deg(180.0 / M_PI) {
-            velocity = 0.0;
-            trackingMouse = false;
-            lastTime = QTime::currentTime();
+    TrackBall::TrackBall(): rad2deg(180.0 / M_PI) {
+        velocity = 0.0;
+        trackingMouse = false;
+        lastTime = QTime::currentTime();
+    }
+
+    void TrackBall::mouseMove(const QPointF &p) {
+        if (!trackingMouse) {
+            return;
         }
 
-        void TrackBall::mouseMove(const QPointF &p) {
-            if (!trackingMouse) {
-                return;
-            }
+        QTime currentTime = QTime::currentTime();
+        int msecs = lastTime.msecsTo(currentTime);
+        if (msecs) {
+            QVector3D vp = mousePosTo3D(p);
+            QVector3D currentPos3D = QVector3D(vp.x(), vp.y(), 0.0);
+            double lenSqr = currentPos3D.lengthSquared();
+            (lenSqr >= 1.0) ? currentPos3D.normalize():currentPos3D.setZ(sqrt(1.0 - lenSqr));
 
-            QTime currentTime = QTime::currentTime();
-            int msecs = lastTime.msecsTo(currentTime);
-            if (msecs) {
-                QVector3D vp = mousePosTo3D(p);
-                QVector3D currentPos3D = QVector3D(vp.x(), vp.y(), 0.0);
-                double lenSqr = currentPos3D.lengthSquared();
-                (lenSqr >= 1.0) ? currentPos3D.normalize():currentPos3D.setZ(sqrt(1.0 - lenSqr));
+            axis = QVector3D::crossProduct(lastPos3D, currentPos3D);
+            double angle = rad2deg * axis.length();
+            velocity = angle / msecs;
+            axis.normalize();
+            rotation = QQuaternion::fromAxisAndAngle(axis, angle) * rotation;
 
-                axis = QVector3D::crossProduct(lastPos3D, currentPos3D);
-                double angle = rad2deg * axis.length();
-                velocity = angle / msecs;
-                axis.normalize();
-                rotation = QQuaternion::fromAxisAndAngle(axis, angle) * rotation;
+            lastPos3D = currentPos3D;
+            lastTime = currentTime;
+        }
+    }
 
-                lastPos3D = currentPos3D;
-                lastTime = currentTime;
-            }
+    void TrackBall::mousePress(const QPointF & p) {
+        rotation = getRotation();
+        trackingMouse = true;
+        lastTime = QTime::currentTime();
+
+        lastPos3D = mousePosTo3D(p);
+        double lenSqr = lastPos3D.lengthSquared();
+        (lenSqr >= 1.0) ? lastPos3D.normalize():lastPos3D.setZ(sqrt(1.0 - lenSqr));
+
+        velocity = 0.0;
+    }
+
+    void TrackBall::mouseRelease(const QPointF & p) {
+        mouseMove(p);
+        trackingMouse = false;
+    }
+
+    void TrackBall::resizeViewport(int width, int height) {
+        viewportWidth = static_cast < double > (width);
+        viewportHeight = static_cast < double > (height);
+    }
+
+    QQuaternion TrackBall::getRotation() {
+        if (trackingMouse) {
+            return rotation;
         }
 
-        void TrackBall::mousePress(const QPointF & p) {
-            rotation = getRotation();
-            trackingMouse = true;
-            lastTime = QTime::currentTime();
+        QTime currentTime = QTime::currentTime();
+        double angle = velocity * lastTime.msecsTo(currentTime);
+        return QQuaternion::fromAxisAndAngle(axis, angle) * rotation;
+    }
 
-            lastPos3D = mousePosTo3D(p);
-            double lenSqr = lastPos3D.lengthSquared();
-            (lenSqr >= 1.0) ? lastPos3D.normalize():lastPos3D.setZ(sqrt(1.0 - lenSqr));
-
-            velocity = 0.0;
-        }
-
-        void TrackBall::mouseRelease(const QPointF & p) {
-            mouseMove(p);
-            trackingMouse = false;
-        }
-
-        void TrackBall::resizeViewport(int width, int height) {
-            viewportWidth = static_cast < double > (width);
-            viewportHeight = static_cast < double > (height);
-        }
-
-        QQuaternion TrackBall::getRotation() {
-            if (trackingMouse) {
-                return rotation;
-            }
-
-            QTime currentTime = QTime::currentTime();
-            double angle = velocity * lastTime.msecsTo(currentTime);
-            return QQuaternion::fromAxisAndAngle(axis, angle) * rotation;
-        }
-
-        QVector3D TrackBall::mousePosTo3D(const QPointF & p) {
-            return QVector3D(2.0 * p.x() / viewportWidth - 1.0, 1.0 - 2.0 * p.y() / viewportHeight, 0.0);
-        }
-        ```
+    QVector3D TrackBall::mousePosTo3D(const QPointF & p) {
+        return QVector3D(2.0 * p.x() / viewportWidth - 1.0, 1.0 - 2.0 * p.y() / viewportHeight, 0.0);
+    }
+    ```
 ### Classes vetor e matriz:
 1. No método **resizeGL()** que haviamos criado anteriormente, iremos configurar a *projectionMatrix* da seguinte forma:
     ```c++
@@ -800,36 +804,36 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
     #endif // GLWIDGET_H
     ```
 ### *Signals/Slots* - parte 2
-1. Iremos emitir um sinal para o widget mudar de cor para recolorirmos a janela. Ao invés de definirmos um *signal/slot* no modo *Design*, faremos agora direto no código. Criaremos o método **animate()** e adicionaremos algumas linhas de código no método **readOFFFile()**:
-    1. Declarando **animate()** e algumas variáveis no arquivo **`glwidget.h`**:
-        ```c++
-        class GLWidget : public QGLWidget
-        {
+Iremos emitir um sinal para o widget mudar de cor para recolorirmos a janela. Ao invés de definirmos um *signal/slot* no modo *Design*, faremos agora direto no código. Criaremos o método **animate()** e adicionaremos algumas linhas de código no método **readOFFFile()**
+1. Declarando **animate()** e algumas variáveis no arquivo **`glwidget.h`**:
+    ```c++
+    class GLWidget : public QGLWidget
+    {
+    ...
+    signals:
+        void statusBarMessage(QString ns);
+    ...
+    public slots:
         ...
-        signals:
-            void statusBarMessage(QString ns);
-        ...
-        public slots:
-            ...
-            void animate();
-        ...
-        private:
-            int texID[2];
-            QTimer timer;
-        ...
-        };
-        ```
-    2. Criando o método **animate()** e editando o método **readOFFFile()** no arquivo **`glwidget.cpp`**:
-        ```c++
-        void GLWidget::animate() {
-            updateGL();
-        }
+        void animate();
+    ...
+    private:
+        int texID[2];
+        QTimer timer;
+    ...
+    };
+    ```
+2. Criando o método **animate()** e editando o método **readOFFFile()** no arquivo **`glwidget.cpp`**:
+    ```c++
+    void GLWidget::animate() {
+        updateGL();
+    }
 
-        void GLWidget::readOFFFile(const QString &fileName) {
-            ...
-            emit statusBarMessage(QString("Samples %1, Faces %2").arg(numVertices).arg(numFaces));
-        }
-        ```
+    void GLWidget::readOFFFile(const QString &fileName) {
+        ...
+        emit statusBarMessage(QString("Samples %1, Faces %2").arg(numVertices).arg(numFaces));
+    }
+    ```
 ### Mapeamento de Textura
 1. Alteramos o método **initializeGL()** no arquivo **`glwidget.cpp`** da seguinte forma:
     ```c++
@@ -928,7 +932,7 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
         shaderProgram->release();
     }
     ```
-2. Criamos as classes **Camera**, **Light** e **Material** (Criando a interface gráfica - passo 2.i):
+2. Criamos as classes **Camera**, **Light** e **Material** (Criando a interface gráfica - passo 1):
     1. **`camera.h`**:
         ```c++
         #ifndef CAMERA_H

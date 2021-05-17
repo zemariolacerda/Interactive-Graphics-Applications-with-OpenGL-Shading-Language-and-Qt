@@ -112,6 +112,7 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
     2. Em *Promoted class name* coloque *GLWidget*, clique em *Add* e *Promote*:
         ![alt text](https://i.imgur.com/oj1n8HG.png)
 6. Altere a *focusPolicy* do *widget* para *StrongFocus*:
+    &nbsp;
     ![alt text](https://i.imgur.com/BehT2ZA.png)
 7. Para rodar o programa, use o atalho '*ctrl + R*' ou clique no icone *Run*:
     ![alt text](https://i.imgur.com/svI7nqT.png)

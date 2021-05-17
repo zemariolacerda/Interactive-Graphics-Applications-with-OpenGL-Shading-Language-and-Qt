@@ -406,8 +406,8 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
 3. Crie um prefixo para listar shaders e texturas no arquivo **`resources.qrc`**:
     ![alt text](https://i.imgur.com/xLv9ash.png)
 4. 
-    1. Faça o Download dos [shaders](https://drive.google.com/drive/folders/1FZtlo_l-5p9dA7pOUrtqRoSRNyaWGSmE?usp=sharing) e [texturas](https://drive.google.com/drive/folders/1bwNAa2ZpigvoxJhDM8Qawr8_BPsX3UzD?usp=sharing) e coloque os arquivos no diretório do projeto. 
-    2. Adicione-os ao projeto pelo Qt (clique com o botao direito no diretório raiz do projeto). 
+    1. Faça o download dos [shaders](https://drive.google.com/drive/folders/1FZtlo_l-5p9dA7pOUrtqRoSRNyaWGSmE?usp=sharing) e [texturas](https://drive.google.com/drive/folders/1bwNAa2ZpigvoxJhDM8Qawr8_BPsX3UzD?usp=sharing) e coloque os arquivos no diretório do projeto. 
+    2. Adicione-os ao projeto pelo Qt (clique com o botão direito no diretório raiz do projeto). 
     3. Clique em *Add* -> *Add Files* e selecione os arquivos (arquivos de textura terminam com .png e os arquivos de *shader* terminam com .glsl):
         ![alt text](https://i.imgur.com/1mX36Em.png)
 5. Declaramos algumas variáveis e os métodos **createShaders()** e **destroyShaders()** no arquivo **`glwidget.h`**:
@@ -586,8 +586,8 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
 ### Eventos do mouse e teclado
 1. Declaramos algumas variáveis e os seguintes métodos no arquivo **`glwidget.h`**:
     -  **keyPressEvent()**: responsável pela por alternar entre os efeitos do *shader* com as teclas 0 (Gourad shading), 1 (Phong shading), 2 (Phong + textura), 3 (mapeamento normal), esc (sair da aplicação).
-    - **mouseMoveEvent()**, **mousePressEvent()**, **mouseReleaseEvent()**: métodos que manipulam os eventos do mous para a classe *TrackBall* que iremos criar em seguida.
-    - **wheelEvent()**: implementaremos uma operação de zoom com a manipulação da roda do mouse.
+    - **mouseMoveEvent()**, **mousePressEvent()**, **mouseReleaseEvent()**: métodos que manipulam os eventos do mouse para a classe *TrackBall* que iremos criar em seguida.
+    - **wheelEvent()**: implementaremos uma operação de zoom com a manipulação do *scroll* do mouse.
         ```c++
         ...
         #include "trackball.h";

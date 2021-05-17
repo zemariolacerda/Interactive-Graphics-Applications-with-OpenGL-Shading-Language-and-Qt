@@ -1,5 +1,4 @@
 # Interactive-Graphics-Applications-with-OpenGL-Shading-Language-and-Qt
-
 ### Qt SDK 1.2.1 (Qt Creator IDE 2.4.1 + Qt Framework 4.8.1):
 [Qt SDK 1.2.1 Linux](https://drive.google.com/file/d/1FUsWaRXAQ5Wg0AHjIMmGzsssDZ-4O3Nv/view?usp=sharing):
 
@@ -1109,3 +1108,5 @@ Podemos testar a aplicação com alguns [objetos](https://drive.google.com/drive
 > > $ apt-get install libmesa-dev
 > > ```
 
+### Referência:
+J. P. Gois and H. C. Batagelo, Interactive graphics applications with opengl shading language and qt. 25th Conference  on Graphics, Patterns and Images Tutorials (SIBGRAPI-T 2012). Agosto, 2012. pp. 1–20. Disponível em http://www.decom.ufop.br/sibgrapi2012/eproceedings/tutorials/t3-survey_paper.pdf. Acessado em 28/09/2020.

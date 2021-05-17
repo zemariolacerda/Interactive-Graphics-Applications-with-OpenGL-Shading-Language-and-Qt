@@ -19,6 +19,7 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
 1. Crie um novo projeto:
     ![alt text](https://i.imgur.com/KUAiNTM.png)
 2. Selecione as opções destacadas:
+    &nbsp;
     ![alt text](https://i.imgur.com/3bUjjbR.png)
 3. Defina o nome do seu projeto e o diretório em que ele será salvo:
     ![alt text](https://i.imgur.com/8QwCiJq.png)
@@ -111,7 +112,7 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
     2. Em *Promoted class name* coloque *GLWidget*, clique em *Add* e *Promote*:
         ![alt text](https://i.imgur.com/oj1n8HG.png)
 6. Altere a *focusPolicy* do *widget* para *StrongFocus*:
-        ![alt text](https://i.imgur.com/BehT2ZA.png)
+    ![alt text](https://i.imgur.com/BehT2ZA.png)
 7. Para rodar o programa, use o atalho '*ctrl + R*' ou clique no icone *Run*:
     ![alt text](https://i.imgur.com/svI7nqT.png)
 8. Caso tudo ocorra bem, uma janela será criada na sua tela. Caso encontre problemas, veja se existe alguma solução na parte de problemas encontrados.

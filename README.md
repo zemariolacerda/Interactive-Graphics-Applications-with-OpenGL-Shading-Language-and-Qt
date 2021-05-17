@@ -1,12 +1,11 @@
 # Interactive-Graphics-Applications-with-OpenGL-Shading-Language-and-Qt
 ### Qt SDK 1.2.1 (Qt Creator IDE 2.4.1 + Qt Framework 4.8.1):
-[Qt SDK 1.2.1 Linux](https://drive.google.com/file/d/1FUsWaRXAQ5Wg0AHjIMmGzsssDZ-4O3Nv/view?usp=sharing):
+[Download](https://drive.google.com/file/d/1FUsWaRXAQ5Wg0AHjIMmGzsssDZ-4O3Nv/view?usp=sharing) Qt SDK 1.2.1 Linux:
 
 1. Executando pela interface gráfica:
    1. Faça o download do arquivo .run;
    2. Clique com o botão direito, *Propriedades* -> *Permissões* -> Marque a opção que permite executar o arquivo como programa -> *Fechar*;
    3. Clique 2x para executar o arquivo;
-&nbsp;
 2. Pelo terminal:
 ```
 $ cd /local/do/arquivo/chmod +x qt-creator-opensource-linux-x86_64-4.8.0.run 
@@ -14,14 +13,12 @@ $ cd /local/do/arquivo/chmod +x qt-creator-opensource-linux-x86_64-4.8.0.run
 ```
 $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
 ```
-[Qt SDK 1.2.1 Windows](https://drive.google.com/file/d/1uAPWVDFjSLSmYABIIqvSzXsdgpdeSZPl/view?usp=sharing):
+[Download](https://drive.google.com/file/d/1uAPWVDFjSLSmYABIIqvSzXsdgpdeSZPl/view?usp=sharing) Qt SDK 1.2.1 Windows:
 1. Instalação padrão do windows.
-&nbsp;
 ### Criando um novo projeto:
 1. Crie um novo projeto:
     ![alt text](https://i.imgur.com/KUAiNTM.png)
 2. Selecione as opções destacadas:
-&nbsp;
     ![alt text](https://i.imgur.com/3bUjjbR.png)
 3. Defina o nome do seu projeto e o diretório em que ele será salvo:
     ![alt text](https://i.imgur.com/8QwCiJq.png)
@@ -60,7 +57,6 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
     2. Preencha os campos da classe e avance:
         ![alt text](https://i.imgur.com/fkGFYJZ.png)
     3. Finalize:                                          
-&nbsp;
         ![alt text](https://i.imgur.com/ypiFjqL.png)
 2. Dê include em **`<QtOpenGL>`** e declare os métodos **initializeGL()**, **resizeGL()** e **paintGL()** no arquivo **`glwidget.h`**:
     ```c++

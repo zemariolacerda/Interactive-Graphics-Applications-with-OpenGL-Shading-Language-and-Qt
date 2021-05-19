@@ -407,7 +407,7 @@ $ ./qt-creator-opensource-linux-x86_64-4.8.0.run
     ![alt text](https://i.imgur.com/xLv9ash.png)
 4. 
     1. Faça o download dos [shaders](https://drive.google.com/drive/folders/1FZtlo_l-5p9dA7pOUrtqRoSRNyaWGSmE?usp=sharing) e [texturas](https://drive.google.com/drive/folders/1bwNAa2ZpigvoxJhDM8Qawr8_BPsX3UzD?usp=sharing) e coloque os arquivos no diretório do projeto. 
-    2. Adicione-os ao projeto pelo Qt (clique com o botão direito no diretório raiz do projeto). 
+    2. Adicione-os ao projeto pelo Qt (clique com o botão direito no diretório raiz do projeto) -> *Add Existing Files*. 
     3. Clique em *Add* -> *Add Files* e selecione os arquivos (arquivos de textura terminam com .png e os arquivos de *shader* terminam com .glsl):
         ![alt text](https://i.imgur.com/1mX36Em.png)
 5. Declaramos algumas variáveis e os métodos **createShaders()** e **destroyShaders()** no arquivo **`glwidget.h`**:
